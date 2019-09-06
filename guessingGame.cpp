@@ -1,9 +1,8 @@
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 using namespace std;
-
 int main()
 {
   srand(time(NULL));
@@ -14,7 +13,7 @@ int main()
   while (!gameComplete)
     {
       cout << "Guess a number from 0 to 100:" << endl;
-      cin >> input >> endl;
+      cin >> input;
       guesses++;
       if (input == numToGuess)
 	{
@@ -34,8 +33,8 @@ int main()
 	  cout << "I don't think you guessed a number." << endl;
 	}
     }
-  cout << "Game over. You won in " << guesses << " guesses. Would you like to play again? Press 1 to play again, and any other button to exit." << endl;
-  cin >> input >> endl;
+  cout << "Game over. You won in " << ++guesses << " guesses. Would you like to play again? Press 1 to play again, and any other button to exit." << endl;
+  cin >> input;
   if (input == 1)
     {
       main();
