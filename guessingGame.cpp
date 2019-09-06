@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 using namespace std;
+//Raymond Baartmans
+//Guessing Game
+//9/6/2019
 int main()
 {
   srand(time(NULL));//generates random number
