@@ -16,7 +16,21 @@ int main()
   while (!gameComplete)//this loop contains the process for a guess and loops until you guess the right number
     {
       cout << "Guess a number from 0 to 100:" << endl;
-      cin >> input;//Get user input
+      bool validguess = false;
+      while (!validguess)
+	{
+	  cin >> input; //get user input
+	  if (cin.fail())
+	    {
+	      cout << "Invalid input. Try again" << endl;
+	      cin.clear();
+	      cin.ignore(1);
+	    }
+	  else
+	    {
+	      validguess = true;
+	    }
+	}
       guesses++;//Add one guess to the total
       if (input == numToGuess)//if the guess was correct
 	{
