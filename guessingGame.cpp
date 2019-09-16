@@ -50,7 +50,7 @@ int main()
 	  cout << "I don't think you guessed a number." << endl;
 	}
     }
-  cout << "Game over. You won in " << ++guesses << " guesses. Would you like to play again? Press 1 to play again, and any other button to exit." << endl;//Game over message will display after the loop, which stops looping when you guess the correct number
+  cout << "Game over. You won in " << guesses << " guesses. Would you like to play again? Press 1 to play again, and any other button to exit." << endl;//Game over message will display after the loop, which stops looping when you guess the correct number
   cin >> input;//get user input for whether or not the user wants to replay
   if (input == 1)//is the input 1, if yes restart
     {
