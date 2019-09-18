@@ -4,48 +4,69 @@
 #include <cstring>
 using namespace std;
 
+//palindrome
+//raymond baartmans
+//9/18/2019
+
 int main()
 {
-  char input [80];
-  char array2 [80];
-  char array3 [80];
+  bool palindrome = false;//whether the word is a palindrome
+  char input [80];//array that stores orig input;
+  char array2 [80];//stores chars w/o punctuation
+  char array3 [80];//stores reversed chars
+  int spot = 0;//the location of the terminating nullchar
   cout << "Enter in a bunch of characters - up to 80." << endl;
   cin >> input;
-  if (sizeof(input) == 0)
+  if (sizeof(input) == 0)//im lazy so i didnt bother deleting this since it will never execute
     {
       cout << "Enter something!";
     }
   else
     {
-      int counter = 0; 
+      int counter = 0; //used in compressing input
       for (int i = 0; i < 80; i++)
-	{
-	  if (( input[i] >= 'A' && input[i] <= 'Z') || (input[i] >= 'a' && input[i] <= 'z'))
+	{//read through the array and insert all non puncuation stuff into array2
+	  if ((( input[i] >= 65) && (input[i] <= 90)) || ((input[i] >= 97) && (input[i] <= 122)))//char values for normal characters
 	    {
 	      array2[counter] = input[i];
 	      counter++;
 	    }
-	  else if (input[i] == '\0')
+	  else if (input[i] == '\0')//if we see the terminating null char, save that spot and quit the loop
 	    {
-	      i = 79;
+	      spot = i;
+	      i = 80;
 	    }
 	}
       counter = 0;
-      for (int i = 79; i >= 0; i -= 1)
+      for (int i = spot; i >= 0; i--)//move backwards from the spot and reverse the input
 	{
-	  if ( (array2[i] >= 'A' && array2[i] <= 'Z') || (array2[i] >= 'a' && array2[i] <= 'z') )
+	  if ( ((array2[i] >= 65) &&  (array2[i] <= 90)) || ((array2[i] >= 97) && (array2[i] <= 122)) )
 	    {
 	      array3[counter] = array2[i];
 	      counter++;
 	    }
 	}
-      cout << array2[0] << endl;
-      cout << array3[0] << endl;
-      cout << array3[1] << endl;
-      cout << array3[2] << endl;
-      cout << array3[3] << endl;
       
-      if (array2 == array3)
+      
+      for (int i = 0; i <= spot; i++)
+	{
+	  cout << array2[i] << endl;
+	}
+      for (int i = 0; i <= spot; i++)
+	{
+	  cout << array3[i] << endl;
+	  }
+
+      palindrome = true;//for this we start out with palindrome as true and if there is a difference in the normal and reversed word we set it false
+      for (int i = 0; i <= spot; i++)
+	{
+	  if (array2[i] != array3[i])
+	    {
+	      palindrome = false;
+	    }
+	}
+      //display whether the word is a palindrome or not
+      if (palindrome)
 	{
 	  cout << "Palindrome" << endl;
 	}
