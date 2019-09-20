@@ -25,7 +25,7 @@ int main()
     {
       for (int i = 0; i < 80; i++)//convert all to lower case
 	{
-	  if (input[i] < 91 && input[i] > 64)
+	  if ((input[i] < 91) && (input[i] > 64))
 	    {
 	      input[i] = input[i] + 32;
 	    }
@@ -41,11 +41,10 @@ int main()
 	    }
 	  else if (input[i] == '\0')//if we see the terminating null char, save that spot and quit the loop
 	    {
-	      cout << input[i] << endl;
-	      spot = i - 1;
 	      i = 80;
 	    }
 	}
+      spot = counter;
       counter = 0;
       for (int i = spot; i >= 0; i--)//move backwards from the spot and reverse the input
 	{
@@ -85,6 +84,6 @@ int main()
 	}
       
     }
-
+    
   
 }
