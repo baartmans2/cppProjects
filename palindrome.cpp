@@ -42,6 +42,7 @@ int main()
 	  else if (input[i] == '\0')//if we see the terminating null char, save that spot and quit the loop
 	    {
 	      i = 80;
+	      counter--;
 	    }
 	}
       spot = counter;
