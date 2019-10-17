@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
+#include <iomanip>
 using namespace std;
 
 //StudentList
@@ -101,6 +102,8 @@ void print(vector<Student*> thelist)//goes through list and prints each students
   vector<Student*>::iterator i;
   for (i = thelist.begin(); i != thelist.end(); i++)
     {
+      std::cout << std::fixed;
+      std::cout << setprecision(2);
       cout << "Name: " << (*i) -> name << ", ID: " << (*i) -> id << ", GPA: " << (*i) -> gpa << endl;
     }//Print em all out
 }
