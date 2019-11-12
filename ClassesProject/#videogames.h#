@@ -11,11 +11,12 @@ class VideoGames : public Media
 {
  public:
   VideoGames();
-  char* getMaker();
+  char* getMaker()
+    
   float* getRating();
  protected:
-  char* maker;
-  float* rating;
+  char maker[50];
+  float rating;
 };
 
 #endif

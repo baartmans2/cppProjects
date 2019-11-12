@@ -1,3 +1,6 @@
+#ifndef MUSIC_H
+#define MUSIC_H
+
 #include <iostream>
 #include <cstring>
 #include "media.h"
@@ -10,9 +13,12 @@ class Music : public Media
   Music();
   char* getArtist();
   char* getPublisher();
+  virtual int getType();
   int* getLength();
  protected:
-  char* artist;
-  char* publisher;
-  int* length;
-}
+  char artist[50];
+  char publisher[50];
+  int length;
+};
+
+#endif

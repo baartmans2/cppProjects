@@ -1,3 +1,6 @@
+#ifndef MOVIE_H
+#define MOVIE_H
+
 #include <iostream>
 #include <cstring>
 #include "media.h"
@@ -11,8 +14,11 @@ public:
     char* getDirector();
   int* getDuration();
   float* getRating();
+  virtual int getType();
 protected:
-  char* director;
-  int* duration;
-  float* rating;
-}
+  char director[50];
+  int duration;
+  float rating;
+};
+
+#endif

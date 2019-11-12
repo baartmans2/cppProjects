@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include "media.h"
 
 using namespace std;
 
@@ -14,4 +15,4 @@ protected:
   char* director;
   int* duration;
   float* rating;
-}
+};

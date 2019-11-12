@@ -17,7 +17,7 @@ char* Music::getArtist()
 {
   return artist;
 }
-char* Music::getPublisher();
+char* Music::getPublisher()
 {
   return publisher;
 }

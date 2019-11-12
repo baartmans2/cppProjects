@@ -31,27 +31,27 @@ void ADD(vector<Media*>* media) {
     cout << "Title: ";
     cin.get(movie->getTitle(), 100);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Year: ";
     cin >> *movie->getYear();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Director: ";
     cin.get(movie->getDirector(), 50);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Duration: ";
     cin >> *movie->getDuration();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Rating: ";
     cin >> *movie->getRating();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     media->push_back(movie);
   }
@@ -61,27 +61,27 @@ void ADD(vector<Media*>* media) {
     cout << "Title: ";
     cin.get(song->getTitle(), 100);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Year: ";
     cin >> *song->getYear();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Artist: ";
     cin.get(song->getArtist(), 50);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Length: ";
     cin >> *song->getLength();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Publisher: ";
     cin.get(song->getPublisher(), 100);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     media->push_back(song);
   }
@@ -91,22 +91,22 @@ void ADD(vector<Media*>* media) {
     cout << "Title: ";
     cin.get(game->getTitle(), 100);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Year: ";
     cin >> *game->getYear();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Maker: ";
     cin.get(game->getMaker(), 50);
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     cout << "Rating: ";
     cin >> *game->getRating();
     cin.clear();
-    cin.ignore(1000000, '\n');
+    cin.ignore(10000, '\n');
 
     media->push_back(game);
   }
@@ -115,7 +115,7 @@ void ADD(vector<Media*>* media) {
   }
 }
 
-void LOOK(char* title, vector<Media*>* media) {//look is the the search function. This function takes argument to search by title
+void SEARCH(char* title, vector<Media*>* media) {//look is the the search function. This function takes argument to search by title
   vector<Media*>::iterator a;// go through media and search for matching title
   for(a = media->begin(); a != media->end(); ++a) {
     if(strcmp(title, (*a)->getTitle()) == 0) {
@@ -165,7 +165,7 @@ void DELETE(char* title, vector<Media*>* media) {//delete removes a media. this 
 	cout << "Delete? y = yes, n = no.";
 	cin.get(input, 10);
 	cin.clear();
-	cin.ignore(1000000, '\n');
+	cin.ignore(10000, '\n');
 
 	if(strcmp(input, "y") == 0) {
 	  delete *b;
@@ -176,7 +176,7 @@ void DELETE(char* title, vector<Media*>* media) {//delete removes a media. this 
     }
   }
 
-void LOOK(int year, vector<Media*>* media) {//this is the same as the first look function except that it searches by year instead of title.
+void SEARCH(int year, vector<Media*>* media) {//this is the same as the first look function except that it searches by year instead of title.
   vector<Media*>::iterator a;//search through media and look for matching year, then display the values of the media.
   for(a = media->begin(); a != media->end(); ++a) {
     if(year == *(*a)->getYear()) {
@@ -190,13 +190,13 @@ void LOOK(int year, vector<Media*>* media) {//this is the same as the first look
  	}
 	else if((*a)->getType() == 1) {
 	  cout << "Videogame" << endl;
-	  cout << "Publisher: " << dynamic_cast<VideoGames*>(*a)->getPublisher() << endl;
+	  cout << "Maker: " << dynamic_cast<VideoGames*>(*a)->getMaker() << endl;
 	  cout << "Rating: " << dynamic_cast<VideoGames*>(*a)->getRating() << endl;
 	}
 	else if((*a)->getType() == 2) {
 	  cout << "Music" << endl;
 	  cout << "Artist: " << dynamic_cast<Music*>(*a)->getArtist() << endl;
-	  cout << "Duration: " << dynamic_cast<Music*>(*a)->getDuration() << endl;
+	  cout << "Length: " << dynamic_cast<Music*>(*a)->getLength() << endl;
 	  cout << "Publisher: " << dynamic_cast<Music*>(*a)->getPublisher() << endl;
 	}
       }
@@ -227,7 +227,7 @@ void DELETE(int year, vector<Media*>* media) {// this delete function is the sam
 	cout << "Delete? y = yes, n = no.";
 	cin.get(input, 10);
 	cin.clear();
-	cin.ignore(1000000, '\n');
+	cin.ignore(10000, '\n');
 
 	if(strcmp(input, "y") == 0) {
 	  delete *b;
@@ -240,37 +240,37 @@ void DELETE(int year, vector<Media*>* media) {// this delete function is the sam
 
 int main() {//main method, gets user input to look search delete or quit. 
   bool quit = false;//turned on when user wants to quit.
-   vector<Media*> mediaArr;
+   vector<Media*> mediaVector;
    char input[10];//these store input from user
-   char secondInput[100];
-   int thirdInput;
+   char secondEntryInput[50];
+   int thirdEntryInput;
    while(quit == false) {//loop while the user hasn't chosen to quit.
-     cout << "add, look, delete, or quit?" << endl;//get user input and then go do the function the user wants
+     cout << "would you like to add, search, delete, or quit?" << endl;//get user input and then go do the function the user wants
      cin.get(input, 10);
      cin.clear();
-     cin.ignore(1000000, '\n');
+     cin.ignore(10000, '\n');
      if((strcmp(input, "add")) == 0) {//add media
-       ADD(&mediaArr);
+       ADD(&mediaVector);
      }
-     else if((strcmp(input, "look")) == 0) {//ask user to look by title or year
+     else if((strcmp(input, "search")) == 0) {//ask user to look by title or year
        cout << "Search by year or title? enter 'year' or 'title'." << endl;
        cin.get(input, 10);
        cin.clear();
        cin.ignore(1000000, '\n');
        if(strcmp(input, "year") == 0) {
 	   cout << "Emter year? " << endl;
-	   cin >> thirdInput;
+	   cin >> thirdEntryInput;
 	   cin.clear();
-	   cin.ignore(1000000, '\n');
-	   LOOK(thirdInput, &mediaArr);
+	   cin.ignore(10000, '\n');
+	   SEARCH(thirdEntryInput, &mediaVector);
 
        }
        else if(strcmp(input, "title") == 0) {
 	   cout << "Enter title" << endl;
-	   cin.get(secondInput, 10);
+	   cin.get(secondEntryInput, 10);
 	   cin.clear();
-	   cin.ignore(1000000, '\n');
-	   LOOK(secondInput, &mediaArr);
+	   cin.ignore(10000, '\n');
+	   SEARCH(secondEntryInput, &mediaVector);
        }
        else {
 	 cout << "Invalid input." << endl;
@@ -283,18 +283,18 @@ int main() {//main method, gets user input to look search delete or quit.
        cin.ignore(1000000, '\n');
        if(strcmp(input, "year") == 0) {
 	   cout << "Enter year." << endl;
-	   cin >> thirdInput;
+	   cin >> thirdEntryInput;
 	   cin.clear();
-	   cin.ignore(1000000, '\n');
-	   DELETE(thirdInput, &mediaArr);
+	   cin.ignore(10000, '\n');
+	   DELETE(thirdEntryInput, &mediaVector);
 	   
        }
        else if(strcmp(input, "title") == 0) {
 	   cout << "Enter title." << endl;
-	   cin.get(secondInput, 10);
+	   cin.get(secondEntryInput, 10);
 	   cin.clear();
-	   cin.ignore(1000000, '\n');
-	   DELETE(secondInput, &mediaArr);
+	   cin.ignore(10000, '\n');
+	   DELETE(secondEntryInput, &mediaVector);
        }
        else {
 	 cout << "Invalid input." << endl;

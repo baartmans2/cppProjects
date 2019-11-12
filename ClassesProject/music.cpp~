@@ -11,7 +11,7 @@ Music::Music()
 }
 int Music::getType()
 {
-  return 1;
+  return 2;
 }
 char* Music::getArtist()
 {
