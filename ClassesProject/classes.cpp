@@ -4,7 +4,7 @@
 
 
 
-
+#include <cstdint>
 #include <iostream>
 #include <string.h>
 #include <vector>
@@ -124,18 +124,18 @@ void SEARCH(char* title, vector<Media*>* media) {//look is the the search functi
 	if((*a)->getType() == 0) {
 	  cout << "Movie" << endl;
 	  cout << "Director: " << dynamic_cast<Movie*>(*a)->getDirector() << endl;
-	  cout << "Duration: " << dynamic_cast<Movie*>(*a)->getDuration() << endl;
-	  cout << "Rating: " << dynamic_cast<Movie*>(*a)->getRating() << endl;
+	  cout << "Duration: " << *reinterpret_cast<Movie*>(*a)->getDuration() << endl;
+	  cout << "Rating: " << *reinterpret_cast<Movie*>(*a)->getRating() << endl;
  	}
 	else if((*a)->getType() == 1) {
 	  cout << "Videogame" << endl;
 	  cout << "Maker: " << dynamic_cast<VideoGames*>(*a)->getMaker() << endl;
-	  cout << "Rating: " << dynamic_cast<VideoGames*>(*a)->getRating() << endl;
+	  cout << "Rating: " << *reinterpret_cast<VideoGames*>(*a)->getRating() << endl;
 	}
 	else if((*a)->getType() == 2) {
 	  cout << "Music" << endl;
 	  cout << "Artist: " << dynamic_cast<Music*>(*a)->getArtist() << endl;
-	  cout << "Length: " << dynamic_cast<Music*>(*a)->getLength() << endl;
+	  cout << "Length: " << *reinterpret_cast<Music*>(*a)->getLength() << endl;
 	  cout << "Publisher: " << dynamic_cast<Music*>(*a)->getPublisher() << endl;
 	}
       }
@@ -150,16 +150,16 @@ void DELETE(char* title, vector<Media*>* media) {//delete removes a media. this 
       cout << "The Year: " << *(*b)->getYear() << endl;
       	if((*b)->getType() == 0) {
 	  cout << "Director: " << dynamic_cast<Movie*>(*b)->getDirector() << endl;
-	  cout << "Duration: " << dynamic_cast<Movie*>(*b)->getDuration() << endl;
-	  cout << "Rating: " << dynamic_cast<Movie*>(*b)->getRating() << endl;
+	  cout << "Duration: " << *reinterpret_cast<Movie*>(*b)->getDuration() << endl;
+	  cout << "Rating: " << *reinterpret_cast<Movie*>(*b)->getRating() << endl;
  	}
 	else if((*b)->getType() == 1) {
 	  cout << "Maker: " << dynamic_cast<VideoGames*>(*b)->getMaker() << endl;
-	  cout << "Rating: " << dynamic_cast<VideoGames*>(*b)->getRating() << endl;
+	  cout << "Rating: " << *reinterpret_cast<VideoGames*>(*b)->getRating() << endl;
 	}
 	else if((*b)->getType() == 2) {
 	  cout << "Artist: " << dynamic_cast<Music*>(*b)->getArtist() << endl;
-	  cout << "Length: " << dynamic_cast<Music*>(*b)->getLength() << endl;
+	  cout << "Length: " << *reinterpret_cast<Music*>(*b)->getLength() << endl;
 	  cout << "Publisher: " << dynamic_cast<Music*>(*b)->getPublisher() << endl;
 	}
 	cout << "Delete? y = yes, n = no.";
@@ -185,18 +185,18 @@ void SEARCH(int year, vector<Media*>* media) {//this is the same as the first lo
 	if((*a)->getType() == 0) {
 	  cout << "Movie" << endl;
 	  cout << "Director: " << dynamic_cast<Movie*>(*a)->getDirector() << endl;
-	  cout << "Duration: " << dynamic_cast<Movie*>(*a)->getDuration() << endl;
-	  cout << "Rating: " << dynamic_cast<Movie*>(*a)->getRating() << endl;
+	  cout << "Duration: " << *reinterpret_cast<Movie*>(*a)->getDuration() << endl;
+	  cout << "Rating: " << *reinterpret_cast<Movie*>(*a)->getRating() << endl;
  	}
 	else if((*a)->getType() == 1) {
 	  cout << "Videogame" << endl;
 	  cout << "Maker: " << dynamic_cast<VideoGames*>(*a)->getMaker() << endl;
-	  cout << "Rating: " << dynamic_cast<VideoGames*>(*a)->getRating() << endl;
+	  cout << "Rating: " << *reinterpret_cast<VideoGames*>(*a)->getRating() << endl;
 	}
 	else if((*a)->getType() == 2) {
 	  cout << "Music" << endl;
 	  cout << "Artist: " << dynamic_cast<Music*>(*a)->getArtist() << endl;
-	  cout << "Length: " << dynamic_cast<Music*>(*a)->getLength() << endl;
+	  cout << "Length: " << *reinterpret_cast<Music*>(*a)->getLength() << endl;
 	  cout << "Publisher: " << dynamic_cast<Music*>(*a)->getPublisher() << endl;
 	}
       }
@@ -212,16 +212,16 @@ void DELETE(int year, vector<Media*>* media) {// this delete function is the sam
       cout << "The Year: " << *(*b)->getYear() << endl;
       	if((*b)->getType() == 0) {
 	  cout << "Director: " << dynamic_cast<Movie*>(*b)->getDirector() << endl;
-	  cout << "Duration: " << dynamic_cast<Movie*>(*b)->getDuration() << endl;
-	  cout << "Rating: " << dynamic_cast<Movie*>(*b)->getRating() << endl;
+	  cout << "Duration: " << *reinterpret_cast<Movie*>(*b)->getDuration() << endl;
+	  cout << "Rating: " << *reinterpret_cast<Movie*>(*b)->getRating() << endl;
 	}
 	else if((*b)->getType() == 1) {
 	  cout << "Maker: " << dynamic_cast<VideoGames*>(*b)->getMaker() << endl;
-	  cout << "Rating: " << dynamic_cast<VideoGames*>(*b)->getRating() << endl;
+	  cout << "Rating: " << *reinterpret_cast<VideoGames*>(*b)->getRating() << endl;
 	}
 	else if((*b)->getType() == 2) {
 	  cout << "Artist: " << dynamic_cast<Music*>(*b)->getArtist() << endl;
-	  cout << "Length: " << dynamic_cast<Music*>(*b)->getLength() << endl;
+	  cout << "Length: " << *reinterpret_cast<Music*>(*b)->getLength() << endl;
 	  cout << "Publisher: " << dynamic_cast<Music*>(*b)->getPublisher() << endl;
 	}
 	cout << "Delete? y = yes, n = no.";
@@ -245,7 +245,7 @@ int main() {//main method, gets user input to look search delete or quit.
    char secondEntryInput[50];
    int thirdEntryInput;
    while(quit == false) {//loop while the user hasn't chosen to quit.
-     cout << "would you like to add, search, delete, or quit?" << endl;//get user input and then go do the function the user wants
+     cout << "would you like to add, search, delete, or quit? valid inputs are 'add', 'search', 'delete', or 'quit'." << endl;//get user input and then go do the function the user wants
      cin.get(input, 10);
      cin.clear();
      cin.ignore(10000, '\n');
@@ -258,7 +258,7 @@ int main() {//main method, gets user input to look search delete or quit.
        cin.clear();
        cin.ignore(1000000, '\n');
        if(strcmp(input, "year") == 0) {
-	   cout << "Emter year? " << endl;
+	   cout << "Enter year" << endl;
 	   cin >> thirdEntryInput;
 	   cin.clear();
 	   cin.ignore(10000, '\n');
