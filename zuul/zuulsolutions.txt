@@ -1,0 +1,16 @@
+Solution for Raymond Zuul
+
+east
+east
+east
+east
+south
+west
+west
+west
+west
+south
+east
+east
+east
+east
